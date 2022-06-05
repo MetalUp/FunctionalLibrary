@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>MetalUp.FunctionalLibrary</id>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
     <authors>Richard Pawson</authors>
     <owners>Richard Pawson</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -12,9 +12,13 @@
     <summary>Referencing MetalUp.FunctionalLibrary, use FList.New to create immutable functional lists in the style of Haskell, then apply static functions such as FList.Head, .Append, .Map to the list(s).</summary>
     <description>.NET library that mimics behaviour of some Haskell functions and types.</description>
     <copyright>Copyright 2018</copyright>
-    <releaseNotes>Version 2.0 improves the implementation of ranges (using functions such as EnumFrom etc), but this breaks the API for ranges introduces in 1.4.</releaseNotes>
+    <releaseNotes>
+      All and Any now short-circuit and return a Boolean result as soon as possible., e.g., All(i => i % 2 == 0, EnumFrom(1)) will return false after having only tested the first element of the range from 1 to Int32.MaxValue.
+      All will return true when used on an empty list, e.g., All(i => i % 2 == 0, Flist.Empty&lt;int&gt;() returns true.
+     </releaseNotes>
   </metadata>
     <files>
+      <file src="icon.png" target="images\"/>
       <file src="bin\debug\MetalUp.FunctionalLibrary.dll" target="lib\net452\MetalUp.FunctionalLibrary.dll"></file>
     </files>
 </package>
